@@ -3,6 +3,7 @@
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
+import pymsql
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -15,7 +16,7 @@ logger = logging.getLogger(__name__)
 # update. Error handlers also receive the raised TelegramError object in error.
 def start(bot, update):
     """Send a message when the command /start is issued."""
-    update.message.reply_text('Hi!')
+    update.message.reply_text('Hi!' + update.message.from_user)
 
 
 def help(bot, update):
