@@ -22,7 +22,7 @@ def start(bot, update):
     
 def help(bot, update):
     # Open database connection
-    db = pymysql.connect("172.30.67.51", "userLDD", "12345678", "botdb")
+    db = pymysql.connect("172.30.67.51", "userLDD", "lUWN0swSAp6EiQf8", "botdb")
     
     # prepare a cursor object using cursor() method
     cursor = db.cursor()
