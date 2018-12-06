@@ -33,12 +33,12 @@ def help(bot, update):
     # Fetch a single row using fetchone() method.
     data = cursor.fetchone()
     #print("Database version : %s " % data)
-
-    # disconnect from server
-    db.close()
     
     """Send a message when the command /help is issued."""
-    update.message.reply_text('Help! ' + data)
+    update.message.reply_text('Help! ' + data['version()'] + ' ')
+    
+    # disconnect from server
+    db.close()
     
 def echo(bot, update):
     """Echo the user message."""
