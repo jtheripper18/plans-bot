@@ -3,7 +3,7 @@
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
-import pymsql
+import pymsyql
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
