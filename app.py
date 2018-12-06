@@ -17,7 +17,7 @@ def start(bot, update):
     message = update.message()
     
     """Send a message when the command /start is issued."""
-    message.reply_text('Hi!' + message.from_user())
+    message.reply_text('Hi!')
 
 
 def help(bot, update):
