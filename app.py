@@ -35,7 +35,7 @@ def help(bot, update):
     #print("Database version : %s " % data)
     
     """Send a message when the command /help is issued."""
-    update.message.reply_text('Help! ' + data['version()'] + ' ')
+    update.message.reply_text('Help! ' + data[0] + ' ')
     
     # disconnect from server
     db.close()
