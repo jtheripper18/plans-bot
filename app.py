@@ -19,13 +19,27 @@ def start(bot, update):
     
     """Send a message when the command /start is issued."""
     update.message.reply_text('Hi!' + user.first_name)
-
-
+    
 def help(bot, update):
+    # Open database connection
+    db = pymysql.connect("10.129.12.104", "root", "12345678","sys" )
+    
+    # prepare a cursor object using cursor() method
+    cursor = db.cursor()
+
+    # execute SQL query using execute() method.
+    cursor.execute("SELECT VERSION()")
+
+    # Fetch a single row using fetchone() method.
+    data = cursor.fetchone()
+    #print("Database version : %s " % data)
+
+    # disconnect from server
+    db.close()
+    
     """Send a message when the command /help is issued."""
-    update.message.reply_text('Help!')
-
-
+    update.message.reply_text('Help! ' + data)
+    
 def echo(bot, update):
     """Echo the user message."""
     update.message.reply_text(update.message.text)
