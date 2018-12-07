@@ -45,6 +45,7 @@ def plans(bot, update):
     data = cursor.fetchall()
     
     update.message.reply_text(" " + type(data) + " ")
+    print(data)
     
     db.close()
 
