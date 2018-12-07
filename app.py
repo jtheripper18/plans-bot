@@ -57,9 +57,7 @@ def plans(bot, update):
             "Date / Time: %s\n"
             % (row[0], row[1], row[2], row[3], row[4], row[5]
         )
-    
     update.message.reply_text(strmsg)
-    
     db.close()
 
 def echo(bot, update):
