@@ -44,7 +44,7 @@ def plans(bot, update):
     cursor.execute("SELECT * from plans")
     data = cursor.fetchall()
     
-    update.message.reply_text(" " + data[1])
+    update.message.reply_text(" " + data[0])
     
     db.close()
 
