@@ -50,7 +50,7 @@ def plans(bot, update):
     for row in rows:
         strmsg += "Plan ID: %s\nPlan: %s\nPlan Location: %s\nMeeting Point: %s\nTransport: %s\nDate / Time: %s\n" % (row[0], row[1], row[2], row[3], row[4], row[5])
     
-    update.message.reply_text()
+    update.message.reply_text(strmsg)
     
     db.close()
 
