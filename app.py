@@ -41,12 +41,16 @@ def plans(bot, update):
     """List upcoming plans."""
     db = pymysql.connect("172.30.67.51", "userLDD", "lUWN0swSAp6EiQf8", "botdb")
     cursor = db.cursor()
-    cursor.execute("SELECT * from plans")
+    cursor.execute("SELECT pid, pname, ploc, pmeet, ptran, pdt from plans")
     # fetchall() enter 2 index [][] row x column
     # fetchone() enter 1 index [] column
-    data = cursor.fetchall()
+    rows = cursor.fetchall()
+    strmsg = ""
     
-    update.message.reply_text(str(data[0][0]) + str(data[0][1]) + str(data[0][2]) + str(data[0][3]) + str(data[0][4]) + str(data[0][5]) + str(data[0][6]))
+    for row in rows:
+        strmsg += "Plan ID: %s\nPlan: %s\nPlan Location: %s\nMeeting Point: %s\nTransport: %s\nDate / Time: %s\n" % (row[0], row[1], row[2], row[3], row[4], row[5])
+    
+    update.message.reply_text()
     
     db.close()
 
