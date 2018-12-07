@@ -42,9 +42,11 @@ def plans(bot, update):
     db = pymysql.connect("172.30.67.51", "userLDD", "lUWN0swSAp6EiQf8", "botdb")
     cursor = db.cursor()
     cursor.execute("SELECT * from plans")
+    # fetchall() enter 2 index [][] row x column
+    # fetchone() enter 1 index [] column
     data = cursor.fetchall()
     
-    update.message.reply_text(" " + data[0][0] + " ")
+    update.message.reply_text(str(data[0][0]) + str(data[0][1]) + str(data[0][2]) + str(data[0][3]) + str(data[0][4]) + str(data[0][5]) + str(data[0][6]))
     
     db.close()
 
