@@ -41,8 +41,11 @@ def plans(bot, update):
     """List upcoming plans."""
     db = pymysql.connect("172.30.67.51", "userLDD", "lUWN0swSAp6EiQf8", "botdb")
     cursor = db.cursor()
-    cursor.execute("SELECT VERSION()")
+    cursor.execute("SELECT * from plans")
     data = cursor.fetchall()
+    
+    update.message.reply_text(data[0] + data[1])
+    
     db.close()
 
 def echo(bot, update):
@@ -65,6 +68,7 @@ def main():
     # on different commands - answer in Telegram
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", help))
+    dp.add_handler(CommandHandler("plans", plans))
 
     # on noncommand i.e message - echo the message on Telegram
     dp.add_handler(MessageHandler(Filters.text, echo))
